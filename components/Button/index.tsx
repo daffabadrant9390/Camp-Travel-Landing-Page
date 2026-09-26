@@ -19,15 +19,15 @@ const Button = ({ type, title, icon, variant, fullWidth }: ButtonProps) => {
     <button
       type={type}
       className={`flexCenter gap-3 border rounded-full ${variant} ${
-        fullWidth && 'w-full'
+        fullWidth ? 'w-full' : ''
       }`}
     >
       {!!icon && (
         <div className="relative w-6 h-6 flex-shrink-0">
-          <Image src={icon} alt={title} fill className="bg-cover" />
+          <Image src={icon} alt="" fill className="bg-cover" />
         </div>
       )}
-      <label className="bold-16 whitespace-nowrap">{title || ''}</label>
+      <span className="bold-16 whitespace-nowrap">{title || ''}</span>
     </button>
   );
 };

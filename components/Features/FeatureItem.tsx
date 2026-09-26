@@ -27,8 +27,8 @@ const FeatureItem = ({
           height={28}
         />
       </div>
-      <h2 className="bold-20 lg:bold-32 mt-5 capitalize">{title}</h2>
-      <p className="regular-16 mt-5 lg:mt-[30px] text-gray-30 bg-white/80 lg:bg-none">
+      <h3 className="bold-20 lg:bold-32 mt-4 sm:mt-5 capitalize">{title}</h3>
+      <p className="regular-16 mt-3 sm:mt-5 lg:mt-[30px] text-gray-30 bg-white/80 lg:bg-none">
         {description}
       </p>
     </li>
