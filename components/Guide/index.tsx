@@ -3,13 +3,13 @@ import React from 'react';
 
 const Guide = () => {
   return (
-    <section className="flexCenter flex-col">
+    <section id="guide" className="flexCenter flex-col">
       {/* Heading, Title, and Subtitle */}
-      <div className="padding-container max-container w-full pb-24">
+      <div className="padding-container max-container w-full pb-12 md:pb-24">
         <div className="relative flex-shrink-0 w-12 h-12">
           <Image src="/camp.svg" alt="camp" fill />
         </div>
-        <p className="text-green-50 uppercase regular-18 -mt-1 mb-3">
+        <p className="text-green-50 uppercase regular-16 sm:regular-18 -mt-1 mb-3">
           We are here for you
         </p>
 
@@ -34,10 +34,10 @@ const Guide = () => {
           width={1440}
           height={580}
           alt="boat"
-          className="w-full object-cover object-center 2xl:rounded-5xl"
+          className="w-full h-[360px] object-cover object-center sm:h-[420px] lg:h-auto 2xl:rounded-5xl"
         />
 
-        <div className="absolute flex bg-white py-8 pl-5 pr-7 gap-3 rounded-3xl border shadow-md md:left-[5%] lg:top-20">
+        <div className="absolute left-6 flex bg-white py-6 pl-4 pr-5 gap-3 rounded-3xl border shadow-md sm:py-8 sm:pl-5 sm:pr-7 md:left-[5%] lg:top-20">
           <Image
             src="/meter.svg"
             alt="meter-image"
@@ -48,16 +48,16 @@ const Guide = () => {
 
           <div className="flexBetween flex-col">
             <div className="flex flex-col w-full">
-              <div className="flexBetween w-full">
+              <div className="flexBetween w-full gap-4">
                 <p className="regular-16 text-gray-20">Destination</p>
                 <p className="bold-16 text-green-50">48 mins</p>
               </div>
-              <p className="bold-20 mt-2">Aguas Calientes</p>
+              <p className="bold-18 sm:bold-20 mt-2">Aguas Calientes</p>
             </div>
 
             <div className="flex w-full flex-col">
               <p className="regular-16 text-gray-20">Start track</p>
-              <h4 className="bold-20 whitespace-nowrap mt-2">
+              <h4 className="bold-18 sm:bold-20 whitespace-nowrap mt-2">
                 Wonorejo Pasuruan
               </h4>
             </div>

@@ -1,6 +1,6 @@
 import { PEOPLE_URL } from '@/constants';
 import Image from 'next/image';
-import React, { useMemo } from 'react';
+import React from 'react';
 
 type CampSiteProps = {
   backgroundImage: string;
@@ -19,28 +19,28 @@ const CampSite = ({
   campSiteDataLength,
   currentCampItemIdx,
 }: CampSiteProps) => {
-  const isFirstImage = useMemo(() => {
-    return currentCampItemIdx === 0;
-  }, [currentCampItemIdx]);
-
-  const isLastImage = useMemo(() => {
-    return currentCampItemIdx === campSiteDataLength - 1;
-  }, [currentCampItemIdx, campSiteDataLength]);
+  const isFirstImage = currentCampItemIdx === 0;
+  const isLastImage = currentCampItemIdx === campSiteDataLength - 1;
 
   return (
     <div
-      className={`h-full w-full min-w-[1100px] bg-bg-img-1 bg-cover bg-no-repeat ${
+      className={`relative h-full w-[85%] flex-shrink-0 snap-start overflow-hidden rounded-3xl bg-cover bg-center bg-no-repeat sm:w-[75%] lg:w-[1100px] lg:rounded-none ${
+        backgroundImage || 'bg-bg-img-1'
+      } ${
         isFirstImage
           ? 'lg:rounded-r-5xl'
           : isLastImage
-          ? 'lg:rounded-l-5xl'
-          : 'lg:rounded-5xl'
+            ? 'lg:rounded-l-5xl'
+            : 'lg:rounded-5xl'
       } 2xl:rounded-5xl`}
     >
-      <div className="h-full flex flex-col justify-between items-start p-6 lg:px-20 lg:py-10">
+      {/* Soft gradient keeps the white text readable on any photo */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/40" />
+
+      <div className="relative h-full flex flex-col justify-between items-start p-5 sm:p-6 lg:px-20 lg:py-10">
         {/* Title and Subtitle */}
-        <div className="flexCenter gap-4">
-          <div className="rounded-full relative flex-shrink-0 bg-green-50 p-4">
+        <div className="flexCenter gap-3 sm:gap-4">
+          <div className="rounded-full relative flex-shrink-0 bg-green-50 p-3 sm:p-4">
             <Image
               src="/folded-map.svg"
               alt="map-icon"
@@ -56,8 +56,8 @@ const CampSite = ({
 
         {/* People Joined */}
         {!!peopleJoined && (
-          <div className="flexCenter gap-4 lg:gap-6">
-            <div className="flex -space-x-4 overflow-hidden">
+          <div className="flexCenter gap-3 sm:gap-4 lg:gap-6">
+            <div className="flex -space-x-3 sm:-space-x-4 overflow-hidden">
               {PEOPLE_URL.map((peopleUrl, idx) => (
                 <Image
                   src={peopleUrl}
@@ -65,7 +65,7 @@ const CampSite = ({
                   width={52}
                   height={52}
                   alt="people-image"
-                  className="inline-block w-10 h-10 rounded-full"
+                  className="inline-block w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-white"
                 />
               ))}
             </div>

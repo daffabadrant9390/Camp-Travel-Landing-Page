@@ -4,16 +4,19 @@ import Image from 'next/image';
 
 const GetApp = () => {
   return (
-    <section className="flexCenter flex-col w-full pb-[100px]">
+    <section
+      id="get-app"
+      className="flexCenter flex-col w-full pb-16 md:pb-[100px]"
+    >
       <div className="get-app">
         {/* LEFT SECTION */}
-        <div className="z-20 flex flex-col items-start justify-center w-full flex-1 gap-12">
+        <div className="z-20 flex flex-col items-start justify-center w-full flex-1 gap-8 sm:gap-12">
           <div className="flex flex-col items-start justify-center w-full gap-4">
             <h2 className="bold-40 lg:bold-64 xl:max-w-[320px]">
               Get for free now!
             </h2>
             <p className="regular-16 text-gray-10">
-              Available on IOS and Android
+              Available on iOS and Android
             </p>
           </div>
           <div className="w-full flex flex-col gap-3 whitespace-nowrap xl:flex-row">
@@ -35,12 +38,13 @@ const GetApp = () => {
         </div>
 
         {/* RIGHT SECTION */}
-        <div className="flex flex-1 items-center justify-end">
+        <div className="flex flex-1 items-center justify-center sm:justify-end">
           <Image
             src="/phones.png"
             alt="phones-image"
             width={550}
             height={878}
+            className="h-auto w-full max-w-[280px] sm:max-w-[550px]"
           />
         </div>
       </div>

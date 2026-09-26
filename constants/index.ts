@@ -1,10 +1,45 @@
 // NAVIGATION
-export const NAV_LINKS = [
+export type NavLink = {
+  href: string;
+  key: string;
+  label: string;
+  subLinks?: { href: string; key: string; label: string }[];
+};
+
+export const NAV_LINKS: NavLink[] = [
   { href: '/', key: 'home', label: 'Home' },
-  { href: '/', key: 'how_hilink_work', label: 'How Hilink Work?' },
-  { href: '/', key: 'services', label: 'Services' },
-  { href: '/', key: 'pricing ', label: 'Pricing ' },
-  { href: '/', key: 'contact_us', label: 'Contact Us' },
+  {
+    href: '#guide',
+    key: 'how_hilink_work',
+    label: 'How Hilink Work?',
+    subLinks: [
+      { href: '#camp', key: 'find_camp', label: 'Find a Camp Site' },
+      { href: '#guide', key: 'plan_route', label: 'Plan Your Route' },
+      { href: '#features', key: 'explore_offline', label: 'Explore Offline' },
+    ],
+  },
+  {
+    href: '#features',
+    key: 'services',
+    label: 'Services',
+    subLinks: [
+      { href: '#features', key: 'offline_maps', label: 'Offline Maps' },
+      { href: '#features', key: 'schedule', label: 'Adventure Schedule' },
+      { href: '#features', key: 'ar_guide', label: 'AR Trail Guide' },
+      { href: '#features', key: 'new_locations', label: 'New Locations' },
+    ],
+  },
+  {
+    href: '#get-app',
+    key: 'pricing',
+    label: 'Pricing',
+    subLinks: [
+      { href: '#get-app', key: 'free_plan', label: 'Free Plan' },
+      { href: '#get-app', key: 'premium_plan', label: 'Premium' },
+      { href: '#get-app', key: 'group_plan', label: 'Group Trips' },
+    ],
+  },
+  { href: '#contact', key: 'contact_us', label: 'Contact Us' },
 ];
 
 // CAMP SECTION
@@ -24,6 +59,7 @@ export const CAMP_SITE = [
   },
   {
     title: 'Mountain View Camp',
+    // Full class names so Tailwind's content scan generates them
     backgroundImage: 'bg-bg-img-2',
     subtitle: 'Somewhere in the wilderness',
     numberOfPeopleJoined: 50,

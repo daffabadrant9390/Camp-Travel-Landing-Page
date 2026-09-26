@@ -5,9 +5,12 @@ import FeatureItem from './FeatureItem';
 
 const Features = () => {
   return (
-    <section className="flexCenter bg-feature-bg bg-no-repeat bg-center py-24">
+    <section
+      id="features"
+      className="flexCenter bg-feature-bg bg-no-repeat bg-center py-16 md:py-24"
+    >
       <div className="max-container padding-container relative w-full flex justify-end">
-        <div className="flex flex-1 lg:min-h-[900px]">
+        <div className="hidden lg:flex flex-1 lg:min-h-[900px]">
           <Image
             src={'/phone.png'}
             alt="Phone Image"
@@ -32,7 +35,7 @@ const Features = () => {
           </div>
 
           {/* Features */}
-          <ul className="mt-10 lg:mt-20 grid md:grid-cols-2 gap-10 lg:gap-20">
+          <ul className="mt-10 lg:mt-20 grid md:grid-cols-2 gap-8 sm:gap-10 lg:gap-20">
             {(FEATURES || []).map((feature, idx) => {
               const { title, variant, description, icon } = feature || {};
 
